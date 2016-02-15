@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 0.16.1
-Release  : 26
+Release  : 27
 URL      : https://pypi.python.org/packages/source/s/scipy/scipy-0.16.1.tar.gz
 Source0  : https://pypi.python.org/packages/source/s/scipy/scipy-0.16.1.tar.gz
 Summary  : SciPy: Scientific Library for Python
