@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 0.16.1
-Release  : 29
+Release  : 30
 URL      : https://pypi.python.org/packages/source/s/scipy/scipy-0.16.1.tar.gz
 Source0  : https://pypi.python.org/packages/source/s/scipy/scipy-0.16.1.tar.gz
 Summary  : SciPy: Scientific Library for Python
@@ -43,8 +43,9 @@ python components for the scipy package.
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -flto -fno-semantic-interposition -falign-functions=32 -O3 "
-export CXXFLAGS="$CXXFLAGS -flto -fno-semantic-interposition -falign-functions=32 -O3 "
+export CFLAGS="$CFLAGS -flto -fno-semantic-interposition -falign-functions=32 -O3 -march=sandybridge "
+export CXXFLAGS="$CXXFLAGS -flto -fno-semantic-interposition -falign-functions=32 -O3 -march=sandybridge  "
+export FFLAGS="$FFLAGS -flto -fno-semantic-interposition -falign-functions=32 -O3 -march=sandybridge  "
 python2 setup.py build -b py2 --fcompiler=gnu95
 python3 setup.py build -b py3 --fcompiler=gnu95
 
