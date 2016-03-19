@@ -43,8 +43,8 @@ python components for the scipy package.
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -flto -O3 -falign-functions=32 -fno-semantic-interposition -march=sandybridge "
-export CXXFLAGS="$CXXFLAGS -flto -O3 -falign-functions=32 -fno-semantic-interposition -march=sandybridge "
+export CFLAGS="$CFLAGS -flto -O3 -falign-functions=32 -fno-semantic-interposition "
+export CXXFLAGS="$CXXFLAGS -flto -O3 -falign-functions=32 -fno-semantic-interposition "
 python2 setup.py build -b py2 --fcompiler=gnu95
 python3 setup.py build -b py3 --fcompiler=gnu95
 
