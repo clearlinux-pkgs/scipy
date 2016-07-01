@@ -1,5 +1,5 @@
 PKG_NAME := scipy
-URL := https://pypi.python.org/packages/source/s/scipy/scipy-0.17.0.tar.gz
+URL := http://pypi.debian.net/scipy/scipy-0.17.1.tar.gz
 ARCHIVES :=
 
 include ../common/Makefile.common
