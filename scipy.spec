@@ -44,9 +44,9 @@ export LANG=C
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition -falign-functions=32 "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition -falign-functions=32 "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition -falign-functions=32 "
+export CFLAGS="$CFLAGS -O3 -fno-semantic-interposition -falign-functions=32 "
+export FCFLAGS="$CFLAGS -O3 -fno-semantic-interposition -falign-functions=32 "
+export FFLAGS="$CFLAGS -O3 -fno-semantic-interposition -falign-functions=32 "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition -falign-functions=32 "
 python2 setup.py build -b py2 --fcompiler=gnu95
 python3 setup.py build -b py3 --fcompiler=gnu95
