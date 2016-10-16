@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 0.18.1
-Release  : 46
+Release  : 45
 URL      : http://pypi.debian.net/scipy/scipy-0.18.1.tar.gz
 Source0  : http://pypi.debian.net/scipy/scipy-0.18.1.tar.gz
 Summary  : SciPy: Scientific Library for Python
@@ -41,10 +41,13 @@ python components for the scipy package.
 
 %build
 export LANG=C
-export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
-export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -falign-functions=32 -flto -fno-semantic-interposition "
+export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -flto -fno-semantic-interposition "
+export FFLAGS="$CFLAGS -O3 -falign-functions=32 -flto -fno-semantic-interposition "
+export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -flto -fno-semantic-interposition "
 python2 setup.py build -b py2 --fcompiler=gnu95
 python3 setup.py build -b py3 --fcompiler=gnu95
 
