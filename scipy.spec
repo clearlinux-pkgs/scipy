@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 0.18.1
-Release  : 44
+Release  : 43
 URL      : http://pypi.debian.net/scipy/scipy-0.18.1.tar.gz
 Source0  : http://pypi.debian.net/scipy/scipy-0.18.1.tar.gz
 Summary  : SciPy: Scientific Library for Python
