@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 0.18.0
-Release  : 50
+Release  : 51
 URL      : http://pypi.debian.net/scipy/scipy-0.18.0.tar.gz
 Source0  : http://pypi.debian.net/scipy/scipy-0.18.0.tar.gz
 Summary  : SciPy: Scientific Library for Python
