@@ -5,14 +5,14 @@
 # Source0 file verified with key 0x8A74A50D3341CBBE (evgeny.burovskiy@gmail.com)
 #
 Name     : scipy
-Version  : 0.18.1
-Release  : 57
-URL      : http://pypi.debian.net/scipy/scipy-0.18.1.tar.gz
-Source0  : http://pypi.debian.net/scipy/scipy-0.18.1.tar.gz
-Source99 : http://pypi.debian.net/scipy/scipy-0.18.1.tar.gz.asc
+Version  : 0.19.0
+Release  : 58
+URL      : http://pypi.debian.net/scipy/scipy-0.19.0.zip
+Source0  : http://pypi.debian.net/scipy/scipy-0.19.0.zip
+Source99 : http://pypi.debian.net/scipy/scipy-0.19.0.zip.asc
 Summary  : SciPy: Scientific Library for Python
 Group    : Development/Tools
-License  : BSD-2-Clause BSD-3-Clause BSD-3-Clause-Clear MIT Qhull
+License  : BSD-2-Clause BSD-3-Clause MIT Qhull
 Requires: scipy-python
 BuildRequires : numpy
 BuildRequires : openblas
@@ -40,11 +40,11 @@ python components for the scipy package.
 
 
 %prep
-%setup -q -n scipy-0.18.1
+%setup -q -n scipy-0.19.0
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1486138535
+export SOURCE_DATE_EPOCH=1489158400
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
@@ -53,7 +53,7 @@ python2 setup.py build -b py2 --fcompiler=gnu95
 python3 setup.py build -b py3 --fcompiler=gnu95
 
 %install
-export SOURCE_DATE_EPOCH=1486138535
+export SOURCE_DATE_EPOCH=1489158400
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
