@@ -6,7 +6,7 @@
 #
 Name     : scipy
 Version  : 0.19.0
-Release  : 59
+Release  : 60
 URL      : http://pypi.debian.net/scipy/scipy-0.19.0.zip
 Source0  : http://pypi.debian.net/scipy/scipy-0.19.0.zip
 Source99 : http://pypi.debian.net/scipy/scipy-0.19.0.zip.asc
@@ -43,8 +43,11 @@ python components for the scipy package.
 %setup -q -n scipy-0.19.0
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1489158400
+export SOURCE_DATE_EPOCH=1492543816
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
@@ -53,14 +56,18 @@ python2 setup.py build -b py2 --fcompiler=gnu95
 python3 setup.py build -b py3 --fcompiler=gnu95
 
 %install
-export SOURCE_DATE_EPOCH=1489158400
+export SOURCE_DATE_EPOCH=1492543816
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+echo ----[ mark ]----
+cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
+echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
 
 %files python
 %defattr(-,root,root,-)
-/usr/lib/python*/*
+/usr/lib/python2*/*
+/usr/lib/python3*/*
