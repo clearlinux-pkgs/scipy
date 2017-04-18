@@ -6,7 +6,7 @@
 #
 Name     : scipy
 Version  : 0.19.0
-Release  : 60
+Release  : 61
 URL      : http://pypi.debian.net/scipy/scipy-0.19.0.zip
 Source0  : http://pypi.debian.net/scipy/scipy-0.19.0.zip
 Source99 : http://pypi.debian.net/scipy/scipy-0.19.0.zip.asc
@@ -14,6 +14,7 @@ Summary  : SciPy: Scientific Library for Python
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause MIT Qhull
 Requires: scipy-python
+Requires: libc-bin
 BuildRequires : numpy
 BuildRequires : openblas
 BuildRequires : pbr
