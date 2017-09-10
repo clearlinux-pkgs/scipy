@@ -6,13 +6,14 @@
 #
 Name     : scipy
 Version  : 0.19.1
-Release  : 70
+Release  : 71
 URL      : http://pypi.debian.net/scipy/scipy-0.19.1.tar.gz
 Source0  : http://pypi.debian.net/scipy/scipy-0.19.1.tar.gz
 Source99 : http://pypi.debian.net/scipy/scipy-0.19.1.tar.gz.asc
 Summary  : SciPy: Scientific Library for Python
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause MIT Qhull
+Requires: scipy-legacypython
 Requires: scipy-python
 Requires: libc-bin
 BuildRequires : libc-bin
@@ -25,17 +26,30 @@ BuildRequires : python3-dev
 BuildRequires : setuptools
 
 %description
-Here's what is available (all in double precision):
-LSODE
-LSODES
-LSODA
-LSODAR
-LSODI
-LSOIBT
+science, and engineering. The SciPy library
+        depends on NumPy, which provides convenient and fast N-dimensional
+        array manipulation. The SciPy library is built to work with NumPy
+        arrays, and provides many user-friendly and efficient numerical
+        routines such as routines for numerical integration and optimization.
+        Together, they run on all popular operating systems, are quick to
+        install, and are free of charge.  NumPy and SciPy are easy to use,
+        but powerful enough to be depended upon by some of the world's
+        leading scientists and engineers. If you need to manipulate
+        numbers on a computer and display or publish the results,
+        give SciPy a try!
+
+%package legacypython
+Summary: legacypython components for the scipy package.
+Group: Default
+
+%description legacypython
+legacypython components for the scipy package.
+
 
 %package python
 Summary: python components for the scipy package.
 Group: Default
+Requires: scipy-legacypython
 
 %description python
 python components for the scipy package.
@@ -49,7 +63,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1498242430
+export SOURCE_DATE_EPOCH=1505071144
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
@@ -58,7 +72,7 @@ python2 setup.py build -b py2 --fcompiler=gnu95
 python3 setup.py build -b py3 --fcompiler=gnu95
 
 %install
-export SOURCE_DATE_EPOCH=1498242430
+export SOURCE_DATE_EPOCH=1505071144
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -69,7 +83,10 @@ echo ----[ mark ]----
 %files
 %defattr(-,root,root,-)
 
-%files python
+%files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files python
+%defattr(-,root,root,-)
 /usr/lib/python3*/*
