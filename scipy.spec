@@ -6,7 +6,7 @@
 #
 Name     : scipy
 Version  : 1.0.0
-Release  : 77
+Release  : 78
 URL      : http://pypi.debian.net/scipy/scipy-1.0.0.tar.gz
 Source0  : http://pypi.debian.net/scipy/scipy-1.0.0.tar.gz
 Source99 : http://pypi.debian.net/scipy/scipy-1.0.0.tar.gz.asc
