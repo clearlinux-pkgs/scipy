@@ -1,0 +1,142 @@
+From ac6c856f31250bdb1e95e3c44da9c5cae7bd3bf2 Mon Sep 17 00:00:00 2001
+From: xoviat <xoviat@users.noreply.github.com>
+Date: Mon, 23 Oct 2017 22:04:33 -0500
+Subject: [PATCH] MAINT: fix NumPy deprecation test failures
+
+Replace uses of `fromstring` on non-strings with
+`frombuffer`. Closes gh-8067.
+---
+ scipy/io/idl.py      |  8 ++++----
+ scipy/io/netcdf.py   | 14 +++++++-------
+ scipy/io/wavfile.py  |  2 +-
+ scipy/misc/common.py |  4 ++--
+ 4 files changed, 14 insertions(+), 14 deletions(-)
+
+diff --git a/scipy/io/idl.py b/scipy/io/idl.py
+index 0ba46897f..043de6bf9 100644
+--- a/scipy/io/idl.py
++++ b/scipy/io/idl.py
+@@ -281,15 +281,15 @@ def _read_array(f, typecode, array_desc):
+                 warnings.warn("Not able to verify number of bytes from header")
+ 
+         # Read bytes as numpy array
+-        array = np.fromstring(f.read(array_desc['nbytes']),
+-                                dtype=DTYPE_DICT[typecode])
++        array = np.frombuffer(f.read(array_desc['nbytes']),
++                              dtype=DTYPE_DICT[typecode])
+ 
+     elif typecode in [2, 12]:
+ 
+         # These are 2 byte types, need to skip every two as they are not packed
+ 
+-        array = np.fromstring(f.read(array_desc['nbytes']*2),
+-                                dtype=DTYPE_DICT[typecode])[1::2]
++        array = np.frombuffer(f.read(array_desc['nbytes']*2),
++                              dtype=DTYPE_DICT[typecode])[1::2]
+ 
+     else:
+ 
+diff --git a/scipy/io/netcdf.py b/scipy/io/netcdf.py
+index 5c6f0e53a..4ef3c793c 100644
+--- a/scipy/io/netcdf.py
++++ b/scipy/io/netcdf.py
+@@ -45,7 +45,7 @@ import mmap as mm
+ 
+ import numpy as np
+ from numpy.compat import asbytes, asstr
+-from numpy import fromstring, dtype, empty, array, asarray
++from numpy import frombuffer, dtype, empty, array, asarray
+ from numpy import little_endian as LITTLE_ENDIAN
+ from functools import reduce
+ 
+@@ -584,7 +584,7 @@ class netcdf_file(object):
+         if not magic == b'CDF':
+             raise TypeError("Error: %s is not a valid NetCDF 3 file" %
+                             self.filename)
+-        self.__dict__['version_byte'] = fromstring(self.fp.read(1), '>b')[0]
++        self.__dict__['version_byte'] = frombuffer(self.fp.read(1), '>b')[0]
+ 
+         # Read file headers and set data.
+         self._read_numrecs()
+@@ -678,7 +678,7 @@ class netcdf_file(object):
+                 else:
+                     pos = self.fp.tell()
+                     self.fp.seek(begin_)
+-                    data = fromstring(self.fp.read(a_size), dtype=dtype_)
++                    data = frombuffer(self.fp.read(a_size), dtype=dtype_)
+                     data.shape = shape
+                     self.fp.seek(pos)
+ 
+@@ -700,7 +700,7 @@ class netcdf_file(object):
+             else:
+                 pos = self.fp.tell()
+                 self.fp.seek(begin)
+-                rec_array = fromstring(self.fp.read(self._recs*self._recsize), dtype=dtypes)
++                rec_array = frombuffer(self.fp.read(self._recs*self._recsize), dtype=dtypes)
+                 rec_array.shape = (self._recs,)
+                 self.fp.seek(pos)
+ 
+@@ -743,7 +743,7 @@ class netcdf_file(object):
+         self.fp.read(-count % 4)  # read padding
+ 
+         if typecode is not 'c':
+-            values = fromstring(values, dtype='>%s' % typecode)
++            values = frombuffer(values, dtype='>%s' % typecode)
+             if values.shape == (1,):
+                 values = values[0]
+         else:
+@@ -761,14 +761,14 @@ class netcdf_file(object):
+     _pack_int32 = _pack_int
+ 
+     def _unpack_int(self):
+-        return int(fromstring(self.fp.read(4), '>i')[0])
++        return int(frombuffer(self.fp.read(4), '>i')[0])
+     _unpack_int32 = _unpack_int
+ 
+     def _pack_int64(self, value):
+         self.fp.write(array(value, '>q').tostring())
+ 
+     def _unpack_int64(self):
+-        return fromstring(self.fp.read(8), '>q')[0]
++        return frombuffer(self.fp.read(8), '>q')[0]
+ 
+     def _pack_string(self, s):
+         count = len(s)
+diff --git a/scipy/io/wavfile.py b/scipy/io/wavfile.py
+index 2c850687a..f574af282 100644
+--- a/scipy/io/wavfile.py
++++ b/scipy/io/wavfile.py
+@@ -126,7 +126,7 @@ def _read_data_chunk(fid, format_tag, channels, bit_depth, is_big_endian,
+         else:
+             dtype += 'f%d' % bytes_per_sample
+     if not mmap:
+-        data = numpy.fromstring(fid.read(size), dtype=dtype)
++        data = numpy.frombuffer(fid.read(size), dtype=dtype)
+     else:
+         start = fid.tell()
+         data = numpy.memmap(fid, dtype=dtype, mode='c', offset=start,
+diff --git a/scipy/misc/common.py b/scipy/misc/common.py
+index 482545ca5..1501a244b 100644
+--- a/scipy/misc/common.py
++++ b/scipy/misc/common.py
+@@ -5,7 +5,7 @@ Functions which are common and require SciPy Base and Level 1 SciPy
+ 
+ from __future__ import division, print_function, absolute_import
+ 
+-from numpy import arange, newaxis, hstack, product, array, fromstring
++from numpy import arange, newaxis, hstack, product, array, frombuffer
+ 
+ __all__ = ['central_diff_weights', 'derivative', 'ascent', 'face']
+ 
+@@ -196,7 +196,7 @@ def face(gray=False):
+     with open(os.path.join(os.path.dirname(__file__), 'face.dat'), 'rb') as f:
+         rawdata = f.read()
+     data = bz2.decompress(rawdata)
+-    face = fromstring(data, dtype='uint8')
++    face = frombuffer(data, dtype='uint8')
+     face.shape = (768, 1024, 3)
+     if gray is True:
+         face = (0.21 * face[:,:,0] + 0.71 * face[:,:,1] + 0.07 * face[:,:,2]).astype('uint8')
+-- 
+2.16.2
+

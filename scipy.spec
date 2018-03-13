@@ -6,7 +6,7 @@
 #
 Name     : scipy
 Version  : 1.0.0
-Release  : 80
+Release  : 81
 URL      : http://pypi.debian.net/scipy/scipy-1.0.0.tar.gz
 Source0  : http://pypi.debian.net/scipy/scipy-1.0.0.tar.gz
 Source99 : http://pypi.debian.net/scipy/scipy-1.0.0.tar.gz.asc
@@ -24,12 +24,15 @@ Requires: pytest-timeout
 Requires: pytest-xdist
 BuildRequires : libc-bin
 BuildRequires : numpy
+BuildRequires : numpy-legacypython
 BuildRequires : openblas
 BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : setuptools
+BuildRequires : setuptools-legacypython
+Patch1: 0001-MAINT-fix-NumPy-deprecation-test-failures.patch
 
 %description
 science, and engineering. The SciPy library
@@ -56,7 +59,6 @@ legacypython components for the scipy package.
 %package python
 Summary: python components for the scipy package.
 Group: Default
-Requires: scipy-legacypython
 Requires: scipy-python3
 
 %description python
@@ -74,13 +76,14 @@ python3 components for the scipy package.
 
 %prep
 %setup -q -n scipy-1.0.0
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1508946801
+export SOURCE_DATE_EPOCH=1520982385
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
@@ -89,7 +92,7 @@ python2 setup.py build -b py2 --fcompiler=gnu95
 python3 setup.py build -b py3 --fcompiler=gnu95
 
 %install
-export SOURCE_DATE_EPOCH=1508946801
+export SOURCE_DATE_EPOCH=1520982385
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
