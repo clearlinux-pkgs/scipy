@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEDBEA378BF1A5EBD (ralf.gommers@gmail.com)
 #
 Name     : scipy
-Version  : 1.0.0
-Release  : 81
-URL      : http://pypi.debian.net/scipy/scipy-1.0.0.tar.gz
-Source0  : http://pypi.debian.net/scipy/scipy-1.0.0.tar.gz
-Source99 : http://pypi.debian.net/scipy/scipy-1.0.0.tar.gz.asc
+Version  : 1.0.1
+Release  : 82
+URL      : http://pypi.debian.net/scipy/scipy-1.0.1.tar.gz
+Source0  : http://pypi.debian.net/scipy/scipy-1.0.1.tar.gz
+Source99 : http://pypi.debian.net/scipy/scipy-1.0.1.tar.gz.asc
 Summary  : SciPy: Scientific Library for Python
 Group    : Development/Tools
 License  : Apache-2.0 BSD-2-Clause BSD-3-Clause BSD-3-Clause-Clear MIT Qhull
@@ -32,7 +32,6 @@ BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : setuptools
 BuildRequires : setuptools-legacypython
-Patch1: 0001-MAINT-fix-NumPy-deprecation-test-failures.patch
 
 %description
 science, and engineering. The SciPy library
@@ -75,15 +74,14 @@ python3 components for the scipy package.
 
 
 %prep
-%setup -q -n scipy-1.0.0
-%patch1 -p1
+%setup -q -n scipy-1.0.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1520982385
+export SOURCE_DATE_EPOCH=1522115761
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
@@ -92,7 +90,7 @@ python2 setup.py build -b py2 --fcompiler=gnu95
 python3 setup.py build -b py3 --fcompiler=gnu95
 
 %install
-export SOURCE_DATE_EPOCH=1520982385
+export SOURCE_DATE_EPOCH=1522115761
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
