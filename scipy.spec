@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 1.1.0
-Release  : 87
+Release  : 88
 URL      : http://pypi.debian.net/scipy/scipy-1.1.0.tar.gz
 Source0  : http://pypi.debian.net/scipy/scipy-1.1.0.tar.gz
 Summary  : SciPy: Scientific Library for Python
