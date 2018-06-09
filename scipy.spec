@@ -4,22 +4,18 @@
 #
 Name     : scipy
 Version  : 1.1.0
-Release  : 88
+Release  : 90
 URL      : http://pypi.debian.net/scipy/scipy-1.1.0.tar.gz
 Source0  : http://pypi.debian.net/scipy/scipy-1.1.0.tar.gz
 Summary  : SciPy: Scientific Library for Python
 Group    : Development/Tools
-License  : Apache-2.0 BSD-2-Clause BSD-3-Clause MIT Qhull
+License  : Apache-2.0 BSD-2-Clause BSD-3-Clause BSD-3-Clause-LBNL MIT Qhull
 Requires: scipy-python3
 Requires: scipy-python
 Requires: Jinja2
 Requires: Pillow
-Requires: Sphinx
-Requires: libc-bin
 Requires: matplotlib
 Requires: numpy
-Requires: pytest-timeout
-Requires: pytest-xdist
 BuildRequires : Jinja2
 BuildRequires : Sphinx
 BuildRequires : libc-bin
@@ -81,7 +77,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1525558826
+export SOURCE_DATE_EPOCH=1528581694
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
@@ -90,7 +86,7 @@ python2 setup.py build -b py2 --fcompiler=gnu95
 python3 setup.py build -b py3 --fcompiler=gnu95
 
 %install
-export SOURCE_DATE_EPOCH=1525558826
+export SOURCE_DATE_EPOCH=1528581694
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
