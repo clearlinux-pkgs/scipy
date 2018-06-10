@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 1.1.0
-Release  : 90
+Release  : 91
 URL      : http://pypi.debian.net/scipy/scipy-1.1.0.tar.gz
 Source0  : http://pypi.debian.net/scipy/scipy-1.1.0.tar.gz
 Summary  : SciPy: Scientific Library for Python
@@ -16,6 +16,8 @@ Requires: Jinja2
 Requires: Pillow
 Requires: matplotlib
 Requires: numpy
+Requires: glibc-bin
+Requires: pytest
 BuildRequires : Jinja2
 BuildRequires : Sphinx
 BuildRequires : libc-bin
