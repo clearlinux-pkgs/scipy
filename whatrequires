@@ -1,8 +1,7 @@
 # This file contains recursive sources that require this package
 Keras
-Keras_Applications
-Keras_Preprocessing
 Theano
+caffe
 gensim
-scikit-image
 scikit-learn
+statsmodels
