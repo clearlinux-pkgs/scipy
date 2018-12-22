@@ -4,3 +4,4 @@ pytest-timeout
 pytest-xdist
 libc-bin
 Sphinx
+pytest
