@@ -26,10 +26,8 @@ BuildRequires : Sphinx
 BuildRequires : buildreq-distutils3
 BuildRequires : libc-bin
 BuildRequires : numpy
-BuildRequires : numpy-legacypython
 BuildRequires : openblas
 BuildRequires : python3-dev
-BuildRequires : setuptools-legacypython
 
 %description
 science, and engineering. The SciPy library

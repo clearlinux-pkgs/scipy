@@ -3,5 +3,3 @@
 openblas
 numpy
 libc-bin
-setuptools-legacypython
-numpy-legacypython
