@@ -1,7 +1,14 @@
 # This file contains recursive sources that require this package
 Keras
+Keras_Preprocessing
 Theano
 caffe
+ceph
+dldt
+dldt-model-optimizer
+fonttools
 gensim
+nltk
+open_model_zoo
 scikit-learn
 statsmodels
