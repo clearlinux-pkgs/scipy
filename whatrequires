@@ -2,12 +2,12 @@
 Keras
 Keras_Preprocessing
 Theano
-caffe
 ceph
 dldt
 dldt-model-optimizer
 fonttools
 gensim
+networkx
 nltk
 open_model_zoo
 scikit-learn
