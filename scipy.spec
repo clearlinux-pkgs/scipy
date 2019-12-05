@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 1.3.2
-Release  : 110
+Release  : 111
 URL      : https://github.com/scipy/scipy/releases/download/v1.3.2/scipy-1.3.2.tar.xz
 Source0  : https://github.com/scipy/scipy/releases/download/v1.3.2/scipy-1.3.2.tar.xz
 Summary  : SciPy: Scientific Library for Python
