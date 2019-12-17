@@ -3,3 +3,4 @@
 openblas
 numpy
 libc-bin
+pybind11-dev
