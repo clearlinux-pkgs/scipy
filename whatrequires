@@ -11,4 +11,5 @@ networkx
 nltk
 open_model_zoo
 scikit-learn
+seaborn
 statsmodels

@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 1.4.1
-Release  : 116
+Release  : 117
 URL      : https://github.com/scipy/scipy/releases/download/v1.4.1/scipy-1.4.1.tar.xz
 Source0  : https://github.com/scipy/scipy/releases/download/v1.4.1/scipy-1.4.1.tar.xz
 Summary  : SciPy: Scientific Library for Python
@@ -60,6 +60,7 @@ python components for the scipy package.
 Summary: python3 components for the scipy package.
 Group: Default
 Requires: python3-core
+Provides: pypi(scipy)
 
 %description python3
 python3 components for the scipy package.
@@ -74,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578418621
+export SOURCE_DATE_EPOCH=1583227863
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-lto -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
