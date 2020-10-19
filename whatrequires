@@ -4,8 +4,6 @@ Keras
 Keras_Preprocessing
 Theano
 ceph
-dldt
-dldt-model-optimizer
 fonttools
 gensim
 networkx
@@ -15,4 +13,3 @@ scikit-image
 scikit-learn
 seaborn
 statsmodels
-xgboost
