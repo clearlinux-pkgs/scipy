@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 1.5.4
-Release  : 122
+Release  : 123
 URL      : https://github.com/scipy/scipy/releases/download/v1.5.4/scipy-1.5.4.tar.xz
 Source0  : https://github.com/scipy/scipy/releases/download/v1.5.4/scipy-1.5.4.tar.xz
 Summary  : SciPy: Scientific Library for Python
