@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 1.6.3
-Release  : 131
+Release  : 132
 URL      : https://github.com/scipy/scipy/releases/download/v1.6.3/scipy-1.6.3.tar.xz
 Source0  : https://github.com/scipy/scipy/releases/download/v1.6.3/scipy-1.6.3.tar.xz
 Summary  : SciPy: Scientific Library for Python
