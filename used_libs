@@ -5,6 +5,5 @@ libgfortran.so.5
 libm.so.6
 libmvec.so.1
 libopenblas.so.0
-libpthread.so.0
 libquadmath.so.0
 libstdc++.so.6
