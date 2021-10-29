@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 1.7.1
-Release  : 139
+Release  : 140
 URL      : https://github.com/scipy/scipy/releases/download/v1.7.1/scipy-1.7.1.tar.xz
 Source0  : https://github.com/scipy/scipy/releases/download/v1.7.1/scipy-1.7.1.tar.xz
 Summary  : SciPy: Scientific Library for Python
@@ -71,7 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1627932539
+export SOURCE_DATE_EPOCH=1635465698
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
