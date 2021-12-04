@@ -1,16 +1,11 @@
 # This file contains recursive sources that require this package
-Cura
-Keras
-Keras_Preprocessing
 Theano
 aesara
 ceph
 fonttools
 gensim
 networkx
-nltk
 open_model_zoo
-scikit-image
 scikit-learn
 seaborn
 statsmodels
