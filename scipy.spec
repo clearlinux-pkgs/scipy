@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 1.7.3
-Release  : 144
+Release  : 145
 URL      : https://github.com/scipy/scipy/releases/download/v1.7.3/scipy-1.7.3.tar.xz
 Source0  : https://github.com/scipy/scipy/releases/download/v1.7.3/scipy-1.7.3.tar.xz
 Summary  : SciPy: Scientific Library for Python
