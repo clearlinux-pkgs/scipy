@@ -1,10 +1,6 @@
 # This file contains recursive sources that require this package
 Theano
 aesara
-ceph
-fonttools
-gensim
-networkx
 open_model_zoo
 scikit-learn
 seaborn

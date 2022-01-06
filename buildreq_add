@@ -3,6 +3,6 @@
 openblas
 numpy
 libc-bin
-pybind11-dev
+pypi-pybind11-dev
 Cython
 pythran
