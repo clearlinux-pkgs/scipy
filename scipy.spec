@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 1.7.3
-Release  : 146
+Release  : 147
 URL      : https://github.com/scipy/scipy/releases/download/v1.7.3/scipy-1.7.3.tar.xz
 Source0  : https://github.com/scipy/scipy/releases/download/v1.7.3/scipy-1.7.3.tar.xz
 Summary  : SciPy: Scientific Library for Python
@@ -13,7 +13,6 @@ License  : Apache-2.0 BSD-2-Clause BSD-3-Clause BSL-1.0 MIT Qhull
 Requires: scipy-license = %{version}-%{release}
 Requires: scipy-python = %{version}-%{release}
 Requires: scipy-python3 = %{version}-%{release}
-BuildRequires : Cython
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-distutils3
 BuildRequires : libc-bin
@@ -25,6 +24,7 @@ BuildRequires : pypi(pybind11)
 BuildRequires : pypi(pythran)
 BuildRequires : pypi(setuptools)
 BuildRequires : pypi(wheel)
+BuildRequires : pypi-cython
 BuildRequires : pypi-pybind11-dev
 BuildRequires : python3-dev
 BuildRequires : pythran
@@ -74,7 +74,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641478862
+export SOURCE_DATE_EPOCH=1642367086
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "

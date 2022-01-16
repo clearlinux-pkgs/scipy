@@ -1,7 +1,2 @@
 # This file contains recursive sources that require this package
-Theano
-aesara
-open_model_zoo
 scikit-learn
-seaborn
-statsmodels
