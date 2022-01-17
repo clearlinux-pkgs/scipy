@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 1.7.3
-Release  : 147
+Release  : 148
 URL      : https://github.com/scipy/scipy/releases/download/v1.7.3/scipy-1.7.3.tar.xz
 Source0  : https://github.com/scipy/scipy/releases/download/v1.7.3/scipy-1.7.3.tar.xz
 Summary  : SciPy: Scientific Library for Python
@@ -16,7 +16,6 @@ Requires: scipy-python3 = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-distutils3
 BuildRequires : libc-bin
-BuildRequires : numpy
 BuildRequires : openblas
 BuildRequires : pypi(cython)
 BuildRequires : pypi(numpy)
@@ -74,7 +73,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1642367086
+export SOURCE_DATE_EPOCH=1642454587
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
