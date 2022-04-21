@@ -5,4 +5,4 @@ pypi(numpy)
 libc-bin
 pypi-pybind11-dev
 pypi-cython
-pythran
+pypi-pythran

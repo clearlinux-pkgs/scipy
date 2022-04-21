@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 1.8.0
-Release  : 150
+Release  : 151
 URL      : https://github.com/scipy/scipy/releases/download/v1.8.0/scipy-1.8.0.tar.xz
 Source0  : https://github.com/scipy/scipy/releases/download/v1.8.0/scipy-1.8.0.tar.xz
 Summary  : SciPy: Scientific Library for Python
@@ -25,8 +25,8 @@ BuildRequires : pypi(setuptools)
 BuildRequires : pypi(wheel)
 BuildRequires : pypi-cython
 BuildRequires : pypi-pybind11-dev
+BuildRequires : pypi-pythran
 BuildRequires : python3-dev
-BuildRequires : pythran
 
 %description
 PROPACK Version 2.1,                              Stanford, April 2005
@@ -87,7 +87,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1644191294
+export SOURCE_DATE_EPOCH=1650517940
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -114,6 +114,7 @@ cp %{_builddir}/scipy-1.8.0/scipy/optimize/_highs/external/filereaderlp/LICENSE 
 cp %{_builddir}/scipy-1.8.0/scipy/optimize/tnc/LICENSE %{buildroot}/usr/share/package-licenses/scipy/41248a200801dfbc906b81e9a00c811474b64062
 cp %{_builddir}/scipy-1.8.0/scipy/sparse/linalg/_dsolve/SuperLU/License.txt %{buildroot}/usr/share/package-licenses/scipy/1088e18e7415cdcdfc4b3647a33837cc272b6532
 cp %{_builddir}/scipy-1.8.0/scipy/sparse/linalg/_eigen/arpack/ARPACK/COPYING %{buildroot}/usr/share/package-licenses/scipy/a8322a2036b23080e6706a894c314b9f477dce58
+cp %{_builddir}/scipy-1.8.0/scipy/sparse/linalg/_propack/PROPACK/license.txt %{buildroot}/usr/share/package-licenses/scipy/6688c21dab3d2394af6a740ae061178e7f0c4f01
 cp %{_builddir}/scipy-1.8.0/scipy/spatial/qhull_src/COPYING.txt %{buildroot}/usr/share/package-licenses/scipy/5a74d9542429d0f078329ddbd01eb32bf26a88f3
 pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
 echo ----[ mark ]----
@@ -135,6 +136,7 @@ echo ----[ mark ]----
 /usr/share/package-licenses/scipy/589977b80bebdf03e98a6f333b7e0e7a5fd804b8
 /usr/share/package-licenses/scipy/5a74d9542429d0f078329ddbd01eb32bf26a88f3
 /usr/share/package-licenses/scipy/612568676ab43b80b877fce96fa4a917137117ff
+/usr/share/package-licenses/scipy/6688c21dab3d2394af6a740ae061178e7f0c4f01
 /usr/share/package-licenses/scipy/a8322a2036b23080e6706a894c314b9f477dce58
 /usr/share/package-licenses/scipy/df4f727b25238b8a4be050714fe3f1cb06b17f75
 /usr/share/package-licenses/scipy/ee3e4ebdf82451452fe0c5c9466d90d76dec773f
