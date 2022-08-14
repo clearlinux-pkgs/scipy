@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 1.8.1
-Release  : 154
+Release  : 155
 URL      : https://github.com/scipy/scipy/releases/download/v1.8.1/scipy-1.8.1.tar.xz
 Source0  : https://github.com/scipy/scipy/releases/download/v1.8.1/scipy-1.8.1.tar.xz
 Summary  : SciPy: Scientific Library for Python
