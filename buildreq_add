@@ -6,3 +6,6 @@ libc-bin
 pypi-pybind11-dev
 pypi-cython
 pypi-pythran
+meson
+meson-python3
+pypi-meson_python
