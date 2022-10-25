@@ -4,12 +4,17 @@
 #
 Name     : scipy
 Version  : 1.9.3
-Release  : 159
+Release  : 160
 URL      : https://github.com/scipy/scipy/releases/download/v1.9.3/scipy-1.9.3.tar.gz
 Source0  : https://github.com/scipy/scipy/releases/download/v1.9.3/scipy-1.9.3.tar.gz
 Summary  : Fundamental algorithms for scientific computing in Python
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause BSL-1.0 MIT Qhull
+Requires: scipy-filemap = %{version}-%{release}
+Requires: scipy-lib = %{version}-%{release}
+Requires: scipy-license = %{version}-%{release}
+Requires: scipy-python = %{version}-%{release}
+Requires: scipy-python3 = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-distutils3
 BuildRequires : buildreq-meson
@@ -17,6 +22,7 @@ BuildRequires : libc-bin
 BuildRequires : meson
 BuildRequires : meson-python3
 BuildRequires : openblas
+BuildRequires : pkgconfig(openblas)
 BuildRequires : pypi(cython)
 BuildRequires : pypi(numpy)
 BuildRequires : pypi(pybind11)
@@ -51,6 +57,53 @@ matrix-vector multiplications needed is usually lower for the
 non-restarted version it still can be the method of choice in many
 cases.
 
+%package filemap
+Summary: filemap components for the scipy package.
+Group: Default
+
+%description filemap
+filemap components for the scipy package.
+
+
+%package lib
+Summary: lib components for the scipy package.
+Group: Libraries
+Requires: scipy-license = %{version}-%{release}
+Requires: scipy-filemap = %{version}-%{release}
+
+%description lib
+lib components for the scipy package.
+
+
+%package license
+Summary: license components for the scipy package.
+Group: Default
+
+%description license
+license components for the scipy package.
+
+
+%package python
+Summary: python components for the scipy package.
+Group: Default
+Requires: scipy-python3 = %{version}-%{release}
+
+%description python
+python components for the scipy package.
+
+
+%package python3
+Summary: python3 components for the scipy package.
+Group: Default
+Requires: scipy-filemap = %{version}-%{release}
+Requires: python3-core
+Provides: pypi(scipy)
+Requires: pypi(numpy)
+
+%description python3
+python3 components for the scipy package.
+
+
 %prep
 %setup -q -n scipy-1.9.3
 cd %{_builddir}/scipy-1.9.3
@@ -63,7 +116,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1666713770
+export SOURCE_DATE_EPOCH=1666718996
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -72,8 +125,8 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 -m build --wheel --skip-dependency-check --no-isolation
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -msse2avx"
-export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -msse2avx "
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
@@ -119,3 +172,39 @@ popd
 
 %files
 %defattr(-,root,root,-)
+
+%files filemap
+%defattr(-,root,root,-)
+/usr/share/clear/filemap/filemap-scipy
+
+%files lib
+%defattr(-,root,root,-)
+/usr/share/clear/optimized-elf/other*
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/scipy/0c65a98a772b9aa5d3b6bf331102ab6ad8d0f698
+/usr/share/package-licenses/scipy/1088e18e7415cdcdfc4b3647a33837cc272b6532
+/usr/share/package-licenses/scipy/1ebdf28ff73201013bcbe34d7b181aae83c74cd4
+/usr/share/package-licenses/scipy/2b8b815229aa8a61e483fb4ba0588b8b6c491890
+/usr/share/package-licenses/scipy/2ec2c7738e484a6277a75c9a9c29e02be515e1d7
+/usr/share/package-licenses/scipy/3cba29011be2b9d59f6204d6fa0a386b1b2dbd90
+/usr/share/package-licenses/scipy/3f317fbb3e08fd99169d2e77105d562ea0e482c7
+/usr/share/package-licenses/scipy/41248a200801dfbc906b81e9a00c811474b64062
+/usr/share/package-licenses/scipy/58744c28e64b1d647917e9a8490b869221629c72
+/usr/share/package-licenses/scipy/589977b80bebdf03e98a6f333b7e0e7a5fd804b8
+/usr/share/package-licenses/scipy/5a74d9542429d0f078329ddbd01eb32bf26a88f3
+/usr/share/package-licenses/scipy/612568676ab43b80b877fce96fa4a917137117ff
+/usr/share/package-licenses/scipy/6688c21dab3d2394af6a740ae061178e7f0c4f01
+/usr/share/package-licenses/scipy/8d17aef32ae993da00875f545870929a7e1a6ed4
+/usr/share/package-licenses/scipy/946411ef4b46d0a5e23ec3925b66cd920e60bab7
+/usr/share/package-licenses/scipy/a8322a2036b23080e6706a894c314b9f477dce58
+/usr/share/package-licenses/scipy/e84650e600b1cfd0e3773d90d1ca1162c7daeae2
+/usr/share/package-licenses/scipy/ee3e4ebdf82451452fe0c5c9466d90d76dec773f
+
+%files python
+%defattr(-,root,root,-)
+
+%files python3
+%defattr(-,root,root,-)
+/usr/lib/python3*/*
