@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 1.9.3
-Release  : 162
+Release  : 163
 URL      : https://github.com/scipy/scipy/releases/download/v1.9.3/scipy-1.9.3.tar.gz
 Source0  : https://github.com/scipy/scipy/releases/download/v1.9.3/scipy-1.9.3.tar.gz
 Summary  : Fundamental algorithms for scientific computing in Python
