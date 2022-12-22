@@ -34,6 +34,7 @@ BuildRequires : pypi-cython
 BuildRequires : pypi-meson_python
 BuildRequires : pypi-pybind11-dev
 BuildRequires : pypi-pythran
+Provides: pypi(scipy)
 
 %description
 PROPACK Version 2.1,                              Stanford, April 2005
