@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 1.10.0
-Release  : 164
+Release  : 165
 URL      : https://github.com/scipy/scipy/releases/download/v1.10.0/scipy-1.10.0.tar.gz
 Source0  : https://github.com/scipy/scipy/releases/download/v1.10.0/scipy-1.10.0.tar.gz
 Summary  : Fundamental algorithms for scientific computing in Python
@@ -102,6 +102,7 @@ Requires: scipy-filemap = %{version}-%{release}
 Requires: python3-core
 Provides: pypi(gcc)
 Requires: pypi(numpy)
+Provides: pypi(scipy)
 
 %description python3
 python3 components for the scipy package.
@@ -119,7 +120,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1672791772
+export SOURCE_DATE_EPOCH=1672793290
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
@@ -142,6 +143,7 @@ export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/scipy
 cp %{_builddir}/scipy-%{version}/LICENSE.txt %{buildroot}/usr/share/package-licenses/scipy/2ec2c7738e484a6277a75c9a9c29e02be515e1d7 || :
+cp %{_builddir}/scipy-%{version}/LICENSES_bundled.txt %{buildroot}/usr/share/package-licenses/scipy/7269204d493e210ae1edbd4d059d76542acf2d20 || :
 cp %{_builddir}/scipy-%{version}/doc/source/_static/scipy-mathjax/LICENSE %{buildroot}/usr/share/package-licenses/scipy/2b8b815229aa8a61e483fb4ba0588b8b6c491890 || :
 cp %{_builddir}/scipy-%{version}/scipy/_lib/_uarray/LICENSE %{buildroot}/usr/share/package-licenses/scipy/589977b80bebdf03e98a6f333b7e0e7a5fd804b8 || :
 cp %{_builddir}/scipy-%{version}/scipy/_lib/boost/LICENSE_1_0.txt %{buildroot}/usr/share/package-licenses/scipy/3cba29011be2b9d59f6204d6fa0a386b1b2dbd90 || :
@@ -199,6 +201,7 @@ popd
 /usr/share/package-licenses/scipy/5a74d9542429d0f078329ddbd01eb32bf26a88f3
 /usr/share/package-licenses/scipy/612568676ab43b80b877fce96fa4a917137117ff
 /usr/share/package-licenses/scipy/6688c21dab3d2394af6a740ae061178e7f0c4f01
+/usr/share/package-licenses/scipy/7269204d493e210ae1edbd4d059d76542acf2d20
 /usr/share/package-licenses/scipy/8d17aef32ae993da00875f545870929a7e1a6ed4
 /usr/share/package-licenses/scipy/946411ef4b46d0a5e23ec3925b66cd920e60bab7
 /usr/share/package-licenses/scipy/a8322a2036b23080e6706a894c314b9f477dce58
