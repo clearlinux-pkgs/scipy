@@ -4,7 +4,7 @@
 #
 Name     : scipy
 Version  : 1.10.0
-Release  : 165
+Release  : 166
 URL      : https://github.com/scipy/scipy/releases/download/v1.10.0/scipy-1.10.0.tar.gz
 Source0  : https://github.com/scipy/scipy/releases/download/v1.10.0/scipy-1.10.0.tar.gz
 Summary  : Fundamental algorithms for scientific computing in Python
