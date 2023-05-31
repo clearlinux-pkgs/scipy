@@ -5,7 +5,7 @@
 #
 Name     : scipy
 Version  : 1.10.1
-Release  : 168
+Release  : 169
 URL      : https://github.com/scipy/scipy/releases/download/v1.10.1/scipy-1.10.1.tar.gz
 Source0  : https://github.com/scipy/scipy/releases/download/v1.10.1/scipy-1.10.1.tar.gz
 Summary  : Fundamental algorithms for scientific computing in Python
@@ -96,7 +96,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683241607
+export SOURCE_DATE_EPOCH=1685506534
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
