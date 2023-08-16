@@ -1,2 +1,4 @@
-1.10.1
+1.11.1
 pkgconfig(openblas)
+pkgconfig(xsimd)
+python3-dev
