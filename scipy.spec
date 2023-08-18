@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : scipy
-Version  : 1.11.1
-Release  : 170
-URL      : https://github.com/scipy/scipy/releases/download/v1.11.1/scipy-1.11.1.tar.gz
-Source0  : https://github.com/scipy/scipy/releases/download/v1.11.1/scipy-1.11.1.tar.gz
+Version  : 1.11.2
+Release  : 171
+URL      : https://github.com/scipy/scipy/releases/download/v1.11.2/scipy-1.11.2.tar.gz
+Source0  : https://github.com/scipy/scipy/releases/download/v1.11.2/scipy-1.11.2.tar.gz
 Summary  : Fundamental algorithms for scientific computing in Python
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause BSL-1.0 MIT Qhull
@@ -86,10 +86,10 @@ python3 components for the scipy package.
 
 
 %prep
-%setup -q -n scipy-1.11.1
-cd %{_builddir}/scipy-1.11.1
+%setup -q -n scipy-1.11.2
+cd %{_builddir}/scipy-1.11.2
 pushd ..
-cp -a scipy-1.11.1 buildavx2
+cp -a scipy-1.11.2 buildavx2
 popd
 
 %build
@@ -97,7 +97,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1692220617
+export SOURCE_DATE_EPOCH=1692379417
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
