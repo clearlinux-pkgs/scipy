@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : scipy
-Version  : 1.11.2
-Release  : 171
-URL      : https://github.com/scipy/scipy/releases/download/v1.11.2/scipy-1.11.2.tar.gz
-Source0  : https://github.com/scipy/scipy/releases/download/v1.11.2/scipy-1.11.2.tar.gz
+Version  : 1.11.3
+Release  : 172
+URL      : https://github.com/scipy/scipy/releases/download/v1.11.3/scipy-1.11.3.tar.gz
+Source0  : https://github.com/scipy/scipy/releases/download/v1.11.3/scipy-1.11.3.tar.gz
 Summary  : Fundamental algorithms for scientific computing in Python
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause BSL-1.0 MIT Qhull
@@ -24,7 +24,6 @@ BuildRequires : pypi(cython)
 BuildRequires : pypi(numpy)
 BuildRequires : pypi(pybind11)
 BuildRequires : pypi(pythran)
-BuildRequires : pypi(wheel)
 BuildRequires : pypi-cython
 BuildRequires : pypi-meson_python
 BuildRequires : pypi-pybind11-dev
@@ -77,7 +76,7 @@ python components for the scipy package.
 Summary: python3 components for the scipy package.
 Group: Default
 Requires: python3-core
-Provides: pypi(gcc)
+Provides: pypi(libquadmath)
 Requires: pypi(numpy)
 Provides: pypi(scipy)
 
@@ -86,10 +85,10 @@ python3 components for the scipy package.
 
 
 %prep
-%setup -q -n scipy-1.11.2
-cd %{_builddir}/scipy-1.11.2
+%setup -q -n scipy-1.11.3
+cd %{_builddir}/scipy-1.11.3
 pushd ..
-cp -a scipy-1.11.2 buildavx2
+cp -a scipy-1.11.3 buildavx2
 popd
 
 %build
@@ -97,7 +96,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1692379417
+export SOURCE_DATE_EPOCH=1695918996
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
@@ -136,8 +135,6 @@ cp %{_builddir}/scipy-%{version}/scipy/sparse/linalg/_dsolve/SuperLU/License.txt
 cp %{_builddir}/scipy-%{version}/scipy/sparse/linalg/_eigen/arpack/ARPACK/COPYING %{buildroot}/usr/share/package-licenses/scipy/a8322a2036b23080e6706a894c314b9f477dce58 || :
 cp %{_builddir}/scipy-%{version}/scipy/sparse/linalg/_propack/PROPACK/license.txt %{buildroot}/usr/share/package-licenses/scipy/6688c21dab3d2394af6a740ae061178e7f0c4f01 || :
 cp %{_builddir}/scipy-%{version}/scipy/spatial/qhull_src/COPYING.txt %{buildroot}/usr/share/package-licenses/scipy/5a74d9542429d0f078329ddbd01eb32bf26a88f3 || :
-cp %{_builddir}/scipy-%{version}/tools/wheels/LICENSE_linux.txt %{buildroot}/usr/share/package-licenses/scipy/1ebdf28ff73201013bcbe34d7b181aae83c74cd4 || :
-cp %{_builddir}/scipy-%{version}/tools/wheels/LICENSE_win32.txt %{buildroot}/usr/share/package-licenses/scipy/8d17aef32ae993da00875f545870929a7e1a6ed4 || :
 pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -160,7 +157,6 @@ popd
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/scipy/0c65a98a772b9aa5d3b6bf331102ab6ad8d0f698
 /usr/share/package-licenses/scipy/1088e18e7415cdcdfc4b3647a33837cc272b6532
-/usr/share/package-licenses/scipy/1ebdf28ff73201013bcbe34d7b181aae83c74cd4
 /usr/share/package-licenses/scipy/273e234051e39f79ad1f2ae2e609f980d17efef1
 /usr/share/package-licenses/scipy/2b8b815229aa8a61e483fb4ba0588b8b6c491890
 /usr/share/package-licenses/scipy/3cba29011be2b9d59f6204d6fa0a386b1b2dbd90
@@ -171,7 +167,6 @@ popd
 /usr/share/package-licenses/scipy/5a74d9542429d0f078329ddbd01eb32bf26a88f3
 /usr/share/package-licenses/scipy/612568676ab43b80b877fce96fa4a917137117ff
 /usr/share/package-licenses/scipy/6688c21dab3d2394af6a740ae061178e7f0c4f01
-/usr/share/package-licenses/scipy/8d17aef32ae993da00875f545870929a7e1a6ed4
 /usr/share/package-licenses/scipy/946411ef4b46d0a5e23ec3925b66cd920e60bab7
 /usr/share/package-licenses/scipy/99f9c4c0233995bf8527238cfe2ea4bf385cc25f
 /usr/share/package-licenses/scipy/a8322a2036b23080e6706a894c314b9f477dce58
