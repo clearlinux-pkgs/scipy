@@ -9,3 +9,4 @@ pypi-pythran
 meson
 meson-python3
 pypi-meson_python
+pypi-numpy
