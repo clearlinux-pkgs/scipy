@@ -6,10 +6,10 @@
 # autospec commit: f4a13a5
 #
 Name     : scipy
-Version  : 1.15.0
-Release  : 184
-URL      : https://github.com/scipy/scipy/releases/download/v1.15.0/scipy-1.15.0.tar.gz
-Source0  : https://github.com/scipy/scipy/releases/download/v1.15.0/scipy-1.15.0.tar.gz
+Version  : 1.15.1
+Release  : 185
+URL      : https://github.com/scipy/scipy/releases/download/v1.15.1/scipy-1.15.1.tar.gz
+Source0  : https://github.com/scipy/scipy/releases/download/v1.15.1/scipy-1.15.1.tar.gz
 Summary  : Fundamental algorithms for scientific computing in Python
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause BSL-1.0 MIT Qhull
@@ -76,13 +76,13 @@ python3 components for the scipy package.
 
 
 %prep
-%setup -q -n scipy-1.15.0
-cd %{_builddir}/scipy-1.15.0
+%setup -q -n scipy-1.15.1
+cd %{_builddir}/scipy-1.15.1
 pushd ..
-cp -a scipy-1.15.0 buildavx2
+cp -a scipy-1.15.1 buildavx2
 popd
 pushd ..
-cp -a scipy-1.15.0 buildavx512
+cp -a scipy-1.15.1 buildavx512
 popd
 
 %build
@@ -90,7 +90,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1735938299
+export SOURCE_DATE_EPOCH=1736803670
 export GCC_IGNORE_WERROR=1
 CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
@@ -131,10 +131,12 @@ export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/scipy
 cp %{_builddir}/scipy-%{version}/LICENSE.txt %{buildroot}/usr/share/package-licenses/scipy/a16deb71e015ef060ba9db1a420b5aea5206e0b8 || :
+cp %{_builddir}/scipy-%{version}/LICENSES_bundled.txt %{buildroot}/usr/share/package-licenses/scipy/b2a076d7268f51aab1655bae21506bc231c9e5ac || :
 cp %{_builddir}/scipy-%{version}/doc/source/_static/scipy-mathjax/LICENSE %{buildroot}/usr/share/package-licenses/scipy/2b8b815229aa8a61e483fb4ba0588b8b6c491890 || :
 cp %{_builddir}/scipy-%{version}/scipy/_build_utils/tempita/LICENSE.txt %{buildroot}/usr/share/package-licenses/scipy/860ce1e3089e4750ef43d9973281f1062f93636b || :
 cp %{_builddir}/scipy-%{version}/scipy/_lib/_uarray/LICENSE %{buildroot}/usr/share/package-licenses/scipy/589977b80bebdf03e98a6f333b7e0e7a5fd804b8 || :
 cp %{_builddir}/scipy-%{version}/scipy/_lib/array_api_compat/LICENSE %{buildroot}/usr/share/package-licenses/scipy/927759ae3ddc659922e7615a27be84e8579cf180 || :
+cp %{_builddir}/scipy-%{version}/scipy/_lib/array_api_extra/LICENSE %{buildroot}/usr/share/package-licenses/scipy/7b22805d76eae6b4bc05bfab5932a9f3f7f43df8 || :
 cp %{_builddir}/scipy-%{version}/scipy/_lib/boost_math/LICENSE %{buildroot}/usr/share/package-licenses/scipy/3cba29011be2b9d59f6204d6fa0a386b1b2dbd90 || :
 cp %{_builddir}/scipy-%{version}/scipy/_lib/boost_math/doc/sf/license.qbk %{buildroot}/usr/share/package-licenses/scipy/273e234051e39f79ad1f2ae2e609f980d17efef1 || :
 cp %{_builddir}/scipy-%{version}/scipy/_lib/cobyqa/LICENSE %{buildroot}/usr/share/package-licenses/scipy/fd809a645b70dfce5aee6903b64b015b64e3a127 || :
@@ -149,8 +151,12 @@ cp %{_builddir}/scipy-%{version}/scipy/sparse/linalg/_dsolve/SuperLU/License.txt
 cp %{_builddir}/scipy-%{version}/scipy/sparse/linalg/_eigen/arpack/ARPACK/COPYING %{buildroot}/usr/share/package-licenses/scipy/a8322a2036b23080e6706a894c314b9f477dce58 || :
 cp %{_builddir}/scipy-%{version}/scipy/sparse/linalg/_propack/PROPACK/license.txt %{buildroot}/usr/share/package-licenses/scipy/6688c21dab3d2394af6a740ae061178e7f0c4f01 || :
 cp %{_builddir}/scipy-%{version}/scipy/spatial/qhull_src/COPYING.txt %{buildroot}/usr/share/package-licenses/scipy/5a74d9542429d0f078329ddbd01eb32bf26a88f3 || :
+cp %{_builddir}/scipy-%{version}/subprojects/highs/LICENSE.txt %{buildroot}/usr/share/package-licenses/scipy/2b805b6f67ce6ac0e3cd11361b4b4a9c03bf80df || :
 cp %{_builddir}/scipy-%{version}/subprojects/highs/extern/LICENCE_1_0.txt %{buildroot}/usr/share/package-licenses/scipy/3f317fbb3e08fd99169d2e77105d562ea0e482c7 || :
 cp %{_builddir}/scipy-%{version}/subprojects/highs/extern/filereaderlp/LICENSE %{buildroot}/usr/share/package-licenses/scipy/ee3e4ebdf82451452fe0c5c9466d90d76dec773f || :
+cp %{_builddir}/scipy-%{version}/tools/wheels/LICENSE_linux.txt %{buildroot}/usr/share/package-licenses/scipy/6dac007a74c979d75e8ceee9fc5dc1bc4ff6e4fc || :
+cp %{_builddir}/scipy-%{version}/tools/wheels/LICENSE_osx.txt %{buildroot}/usr/share/package-licenses/scipy/e9d9d3a4c3047fb4b816f12662be54183b784c82 || :
+cp %{_builddir}/scipy-%{version}/tools/wheels/LICENSE_win32.txt %{buildroot}/usr/share/package-licenses/scipy/0ece1180c713561f93ba86728516c68eb9922e7f || :
 python3 -m installer --destdir=%{buildroot} dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -172,9 +178,11 @@ popd
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/scipy/0c65a98a772b9aa5d3b6bf331102ab6ad8d0f698
+/usr/share/package-licenses/scipy/0ece1180c713561f93ba86728516c68eb9922e7f
 /usr/share/package-licenses/scipy/1088e18e7415cdcdfc4b3647a33837cc272b6532
 /usr/share/package-licenses/scipy/11e6be99fa6ad788d013a38598c7da3e5d90efbe
 /usr/share/package-licenses/scipy/273e234051e39f79ad1f2ae2e609f980d17efef1
+/usr/share/package-licenses/scipy/2b805b6f67ce6ac0e3cd11361b4b4a9c03bf80df
 /usr/share/package-licenses/scipy/2b8b815229aa8a61e483fb4ba0588b8b6c491890
 /usr/share/package-licenses/scipy/3cba29011be2b9d59f6204d6fa0a386b1b2dbd90
 /usr/share/package-licenses/scipy/3f317fbb3e08fd99169d2e77105d562ea0e482c7
@@ -184,11 +192,15 @@ popd
 /usr/share/package-licenses/scipy/5a74d9542429d0f078329ddbd01eb32bf26a88f3
 /usr/share/package-licenses/scipy/612568676ab43b80b877fce96fa4a917137117ff
 /usr/share/package-licenses/scipy/6688c21dab3d2394af6a740ae061178e7f0c4f01
+/usr/share/package-licenses/scipy/6dac007a74c979d75e8ceee9fc5dc1bc4ff6e4fc
+/usr/share/package-licenses/scipy/7b22805d76eae6b4bc05bfab5932a9f3f7f43df8
 /usr/share/package-licenses/scipy/860ce1e3089e4750ef43d9973281f1062f93636b
 /usr/share/package-licenses/scipy/927759ae3ddc659922e7615a27be84e8579cf180
 /usr/share/package-licenses/scipy/a16deb71e015ef060ba9db1a420b5aea5206e0b8
 /usr/share/package-licenses/scipy/a8322a2036b23080e6706a894c314b9f477dce58
 /usr/share/package-licenses/scipy/b1881ea58a8dacfb4e8965ca56be6cbbe9f53be1
+/usr/share/package-licenses/scipy/b2a076d7268f51aab1655bae21506bc231c9e5ac
+/usr/share/package-licenses/scipy/e9d9d3a4c3047fb4b816f12662be54183b784c82
 /usr/share/package-licenses/scipy/ee3e4ebdf82451452fe0c5c9466d90d76dec773f
 /usr/share/package-licenses/scipy/fd809a645b70dfce5aee6903b64b015b64e3a127
 
